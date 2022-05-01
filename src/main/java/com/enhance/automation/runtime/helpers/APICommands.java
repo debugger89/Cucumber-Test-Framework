@@ -4,6 +4,7 @@ import java.net.URL;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONObject;
 
 import com.enhance.automation.runtime.enums.LogLevel;
 import com.enhance.automation.runtime.reports.ExtentReporterImpl;
@@ -39,9 +40,12 @@ public class APICommands {
 	 */
 	public Response executeGet(String resourceUrl) throws Exception {
 		try {
+			// get the base URL from the config file and construct the full URL
 			PropertyReader propReader = new PropertyReader(Constants.LOCAL_CONFIG_FILENAME);
 			String baseurl = propReader.getProperty(Constants.PARAM_NAME_BASEURL_API);
 			String fullurl = baseurl + "/" + resourceUrl;
+
+			// execute the GET command
 			request = RestAssured.given();
 			response = request.get(new URL(fullurl));
 
@@ -51,6 +55,36 @@ public class APICommands {
 			return response;
 		} catch (Exception e) {
 			LOGGER.error("GET command failed due to error : " + e.getMessage(), e);
+			throw e;
+		}
+	}
+
+	/**
+	 * Executes a HTTP POST command and returns the Response object
+	 * 
+	 * @param resourceUrl The resource URL
+	 * @return
+	 * @throws Exception
+	 */
+	public Response executePost(String resourceUrl, JSONObject payload) throws Exception {
+		try {
+			// get the base URL from the config file and construct the full URL
+			PropertyReader propReader = new PropertyReader(Constants.LOCAL_CONFIG_FILENAME);
+			String baseurl = propReader.getProperty(Constants.PARAM_NAME_BASEURL_API);
+			String fullurl = baseurl + "/" + resourceUrl;
+
+			// execute the POST command with payload
+			request = RestAssured.given();
+			request.header("Content-Type", "application/json");
+			request.body(payload.toString());
+			response = request.post(new URL(fullurl));
+
+			LOGGER.info("POST command executed for : " + fullurl);
+			reporter.log(LogLevel.PASS, "POST command executed for : " + fullurl);
+
+			return response;
+		} catch (Exception e) {
+			LOGGER.error("POST command failed due to error : " + e.getMessage(), e);
 			throw e;
 		}
 	}

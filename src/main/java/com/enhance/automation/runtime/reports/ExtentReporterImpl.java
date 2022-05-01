@@ -106,11 +106,15 @@ public final class ExtentReporterImpl implements IResultReporter {
 
 		test.log(Status.valueOf(logLevel.toString()), message);
 
-		Media m = MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build();
+		Media m = null;
+		if (screenshotPath != null) {
+			m = MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build();
+		}
 
 		// Added as a workaround. The message, throwable, screenshot combination is
 		// hiding the message.
 		test.log(Status.valueOf(logLevel.toString()), t, m);
+
 	}
 
 	/**

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+	<configuration>
+		<!-- report theme -->
+		<!-- standard, dark -->
+		<theme>standard</theme>
+
+		<!-- document encoding -->
+		<!-- defaults to UTF-8 -->
+		<encoding>UTF-8</encoding>
+
+		<!-- protocol for script and stylesheets -->
+		<!-- defaults to https -->
+		<protocol>https</protocol>
+
+		<!-- title of the document -->
+		<documentTitle>Enhance Test Framework Results</documentTitle>
+
+		<!-- report name - displayed at top-nav -->
+		<reportName>Execution Report</reportName>
+
+		<!-- location of charts in the test view -->
+		<!-- top, bottom -->
+		<testViewChartLocation>bottom</testViewChartLocation>
+
+		<!-- custom javascript -->
+		<js>
+			<![CDATA[
+				function addBadges() {
+				    setTimeout(function() {
+				        // Add the FEATURE STEP badge to info messages. 
+				        try {
+				            while (true) {
+				                var row = document.evaluate("//div[@class='test-content-detail']//tr[@class='event-row']/td/span[text()='Info']/../../td[last()][count(*)=0]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+				
+				                if (row === undefined) {
+				                    break;
+				                }
+				
+				                console.log(row)
+				                var badge = document.createElement("span");
+				                badge.className = "badge log warn-bg";
+				                badge.innerHTML = "SCENARIO STEP >";
+				                badge.id = (Math.random() + 1).toString(36).substring(7);
+				                row.prepend(badge)
+				            }
+				        } catch (e) {}
+				    }, 300);
+				}
+				
+				var resultRows = document.querySelectorAll("ul.test-list-item > li")
+				resultRows.forEach((result) => {
+				    result.addEventListener('click', () => {
+				        addBadges();
+				    });
+				});
+				
+				window.addEventListener('load', addBadges);
+				
+				document.onreadystatechange = function() {
+				    if (document.readyState == "complete") {
+				        var logo = document.getElementsByClassName("logo")[0];
+				        logo.style.backgroundImage = "url('https://images.squarespace-cdn.com/content/v1/61066af784b875769a427e06/90887be4-991a-440c-83c6-e1dcf4d032b1/favicon.ico?format=100w')";
+				        logo.style.backgroundSize = "contain";
+				    }
+				}
+            ]]>
+		</js>
+
+		<!-- custom styles -->
+		<css>
+			<![CDATA[
+                
+            ]]>
+		</css>
+	</configuration>
+</extentreports>

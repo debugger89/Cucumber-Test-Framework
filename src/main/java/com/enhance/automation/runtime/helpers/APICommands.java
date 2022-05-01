@@ -17,6 +17,9 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 /**
+ * Provides an abstracted command API for executing HTTP calls through the step
+ * definitions.
+ * 
  * @author cdushmantha
  *
  */

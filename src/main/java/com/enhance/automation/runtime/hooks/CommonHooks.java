@@ -17,9 +17,11 @@ import io.cucumber.java.BeforeStep;
 import io.cucumber.java.Scenario;
 
 /**
+ * 
+ * Contains common hooks for executions regardless of the execution type
+ * 
  * @author cdushmantha
- *
- *         Contains common hooks for executions regardless of the execution type
+ * 
  */
 public class CommonHooks {
 
@@ -37,7 +39,7 @@ public class CommonHooks {
 	public void beforeScenario(Scenario scenario) {
 
 		startTestReporting(scenario);
-
+		// start the step number increment for reporting purposes
 		startStepCounting();
 
 	}
@@ -50,6 +52,7 @@ public class CommonHooks {
 	 */
 	@BeforeStep
 	public void beforeStep(Scenario scenario) {
+		// get the text of the current scenario step
 		String stepText = getCurrentStepText(scenario);
 		if (stepText != null) {
 			IResultReporter reporter = ExtentReporterImpl.getInstance();

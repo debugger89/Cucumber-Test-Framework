@@ -49,6 +49,7 @@ public final class ExtentReporterImpl implements IResultReporter {
 		ExtentSparkReporter spark = new ExtentSparkReporter(reportFolder);
 		try {
 
+			// load the extend config file from the resources
 			InputStream is = ExtentReporterImpl.class.getResourceAsStream("/extent-config.xml");
 			File tempConfigFile = File.createTempFile("_Extent_Config-", "");
 			tempConfigFile.deleteOnExit();
@@ -139,6 +140,9 @@ public final class ExtentReporterImpl implements IResultReporter {
 		return (int) Thread.currentThread().getId();
 	}
 
+	/**
+	 * Returns the report folder for the current execution
+	 */
 	public File getReportFolder() {
 		return reportFolder;
 	}

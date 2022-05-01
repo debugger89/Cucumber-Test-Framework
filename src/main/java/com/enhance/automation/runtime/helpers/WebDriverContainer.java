@@ -6,11 +6,12 @@ import java.util.Map;
 import org.openqa.selenium.WebDriver;
 
 /**
+ * 
+ * Contains the WebDriver objects against the java thread and provides an API to
+ * access theWebDriver object in a thread safe manner during parallel execution.
+ * 
  * @author cdushmantha
  *
- *         Contains the WebDriver objects against the java thread and provides
- *         an API to access theWebDriver object in a thread safe manner during
- *         parallel execution.
  */
 public class WebDriverContainer {
 

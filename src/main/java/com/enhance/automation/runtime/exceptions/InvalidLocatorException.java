@@ -1,7 +1,7 @@
 package com.enhance.automation.runtime.exceptions;
 
 /**
- * Custom exception for any test configuration failures.
+ * Custom exception for any invalid locator related failures.
  * 
  * @author cdushmantha
  *

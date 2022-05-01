@@ -29,7 +29,7 @@ import com.enhance.automation.runtime.utils.PropertyReader;
 /**
  * Implementing class for the {@link Element} interface. Contains the
  * implemented concrete methods of the custom {@link Element} interface and
- * {@link Weblement} interface.
+ * default {@link Weblement} interface.
  * 
  * @author cdushmantha
  *

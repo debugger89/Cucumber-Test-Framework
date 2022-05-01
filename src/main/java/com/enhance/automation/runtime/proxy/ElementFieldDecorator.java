@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 /**
- * Proxy element decorator class for the custom Element type.
+ * Element decorator class for the custom Element type.
  * 
  * @author cdushmantha
  *

@@ -1,7 +1,7 @@
 package com.enhance.automation.runtime.exceptions;
 
 /**
- * Custom exception for un supported browser type for execution
+ * Custom exception for unsupported browser type for execution
  * 
  * @author cdushmantha
  *

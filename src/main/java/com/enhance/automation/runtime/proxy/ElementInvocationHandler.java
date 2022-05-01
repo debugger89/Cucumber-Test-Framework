@@ -19,6 +19,8 @@ public class ElementInvocationHandler implements InvocationHandler {
 	private FindBy findBy;
 
 	/**
+	 * Constructor
+	 * 
 	 * @param driver
 	 * @param findBy
 	 * @param proxyElementClassName
@@ -29,7 +31,8 @@ public class ElementInvocationHandler implements InvocationHandler {
 	}
 
 	/**
-	 *
+	 * Invoke the proxie'd action and override the default action of the WebElement.
+	 * Will invoke the wrapped commands in {@link ElementImpl}
 	 */
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {

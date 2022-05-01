@@ -14,9 +14,11 @@ import io.cucumber.java.AfterStep;
 import io.cucumber.java.Scenario;
 
 /**
+ * 
+ * Contains API related cucumber hooks
+ * 
  * @author cdushmantha
  *
- *         Contains API related cucumber hooks
  */
 public class APIHooks {
 
@@ -31,6 +33,7 @@ public class APIHooks {
 	 */
 	@AfterStep(value = "@api and not @web")
 	public void afterStep(Scenario scenario) throws IOException {
+		// check if failed. If failed report with the error messages and stack trace.
 		if (scenario.isFailed()) {
 			IResultReporter reporter = ExtentReporterImpl.getInstance();
 			Throwable e = getExecutionError(scenario);

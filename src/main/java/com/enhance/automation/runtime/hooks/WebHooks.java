@@ -29,9 +29,11 @@ import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
+ * 
+ * Contains Web related cucumber hooks
+ * 
  * @author cdushmantha
- *
- *         Contains Web related cucumber hooks
+ * 
  */
 public class WebHooks {
 
@@ -106,6 +108,7 @@ public class WebHooks {
 
 		PropertyReader propReader = new PropertyReader(Constants.LOCAL_CONFIG_FILENAME);
 
+		// retrieve the browser's configuration params from the property file.
 		int implicitWait = PrimitiveConverter.parse(Integer.class,
 				propReader.getProperty(Constants.PARAM_NAME_IMPLICITWAIT));
 		int pageLoadTimeout = PrimitiveConverter.parse(Integer.class,

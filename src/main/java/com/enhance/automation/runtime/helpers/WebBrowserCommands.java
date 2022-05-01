@@ -10,9 +10,10 @@ import com.enhance.automation.runtime.reports.ExtentReporterImpl;
 import com.enhance.automation.runtime.reports.IResultReporter;
 
 /**
- * @author cdushmantha
  * 
- *         Contains Selenium browser related command wrappers
+ * Contains Selenium browser related command wrappers
+ * 
+ * @author cdushmantha
  *
  */
 public class WebBrowserCommands {

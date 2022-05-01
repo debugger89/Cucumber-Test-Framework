@@ -3,7 +3,8 @@ package com.enhance.automation.runtime.proxy;
 import org.openqa.selenium.WebElement;
 
 /**
- * Proxy Element class extending the Selenium WebElement 
+ * Proxy Element interface extending the Selenium WebElement
+ * 
  * @author cdushmantha
  *
  */

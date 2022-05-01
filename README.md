@@ -8,7 +8,7 @@ Cucumber Test Framework for Enhance Consulting
 Following are the main highlights of the framework.
 
 ### Custom Extend reporting with cucumber specific formatting
-![Reports](README-ASSETS/custom_report_labels.png)
+![Reports](readme-assets/custom_report_labels.png)
 
 ### Custom PageFactory Model for parameterization & easy interaction of elements
 
@@ -41,7 +41,7 @@ Configure paralleism by simply changing the `junit-platform.properties` file's `
 
 ### Clean project structure seperating responsibilities between technican and non technical users.
 
-![ProjectStructure](README-ASSETS/project_structure.png)
+![ProjectStructure](readme-assets/project_structure.png)
 
 ### Comprehensive logging framework with Log4J.
 Ex: 
